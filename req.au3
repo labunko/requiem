@@ -8,14 +8,12 @@ WinWaitActive("Requiem")
 Local $action, $redcount
 $redcount = 0
 
-
 While 1
 
 $gui = GUICreate("Hello", 300, 200, 0, 500, -1, $WS_EX_TOPMOST)
 GUISetState(@SW_SHOW)
 GUICtrlCreateLabel("Переработано: " & $redcount, 10, 10)
 
-;~ Закупка
 While PixelGetColor(1656,977) = 1574659
 	MouseClick("left", 441, 175, 2, 10)
 	Sleep(50)
@@ -23,14 +21,10 @@ WEnd
 
 Sleep(1000)
 
-
-;~ 968 277 0xAAAAAA
-;~ Открываем переработку
 While Hex(PixelGetColor(968,277), 6) <> "AAAAAA"
 	MouseClick("left", 843, 1031, 2, 10)
 WEnd
 
-;~ 626 240 160C0B
 While Hex(PixelGetColor(626,240), 6) <> "160C0B"
 	MouseMove(960, 278)
 	MouseDown("left")
@@ -39,13 +33,10 @@ While Hex(PixelGetColor(626,240), 6) <> "160C0B"
 	Sleep(500)
 WEnd
 
-
-;~ Разбираем 3 сумки
 For $bag=1 To 3 Step 1
 For $x=1 To 5 Step 1
 	For $y=1 To 5 Step 1
 		GUICtrlCreateLabel("Переработано: " & $redcount, 10, 10)
-;~ 		MouseClickDrag("left", 1670+40*$x, 560+40*$y, 242, 193)
 		MouseMove(1670+40*$x, 560+40*$y)
 		Sleep(50)
 		MouseDown("left")
@@ -64,12 +55,8 @@ For $x=1 To 5 Step 1
 
 		$redcount += 1
 		GUICtrlCreateLabel("Переработано: " & $redcount, 10, 10)
-
 	Next
 Next
-;~ Сумка4 1625 562 411617
-;~ Сумка3 1626 794 411617
-;~ Сумка2 1813 330 411617
 
 MouseMove(1861, 562)
 Sleep(100)
@@ -99,12 +86,8 @@ Select
 			Sleep(500)
 		WEnd
 EndSelect
-
-
-
 Next
 
-;~ Разбираем остатки в 4й сумке, если есть
 While Not @error
 	$coord = PixelSearch(1698, 587, 1869, 615, 0xACCDD5)
 	If Not @error Then
@@ -120,7 +103,6 @@ While Not @error
 	EndIf
 WEnd
 
-;~ Открываем 3 сумки
 While Hex(PixelGetColor(1813,330), 6) <> "411617"
 	MouseMove(1788, 1024)
 	Sleep(100)
@@ -148,8 +130,6 @@ While Hex(PixelGetColor(1625,562), 6) <> "411617"
 	Sleep(500)
 WEnd
 
-;~ Закрываем окно переработки
-
 While Hex(PixelGetColor(139,232), 6) = "000000"
 	MouseMove(732, 115)
 	Sleep(100)
@@ -164,4 +144,3 @@ WEnd
 Func _out()
 	Exit
 EndFunc
-
