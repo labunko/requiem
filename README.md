@@ -1,1 +1,2 @@
-# Небольшой бот для игры Requiem online
+# Requiem online bot
+Бот для переработки ожерелий в А1
