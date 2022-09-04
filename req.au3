@@ -16,10 +16,19 @@ GUISetState(@SW_SHOW)
 GUICtrlCreateLabel("Переработано: " & $redcount, 10, 10)
 
 ;~Buying necklace
-While PixelGetColor(1656,977) = 1574659
+While Hex(PixelGetColor(1631,991), 6) <> "100808"
 	MouseClick("left", 441, 175, 2, 10)
 	Sleep(50)
 WEnd
+
+If Hex(PixelGetColor(1660,608), 6) = "ACCDD5" Then
+	While Hex(PixelGetColor(1696, 608), 6) <> "0A0A0A"
+		MouseClick("right", 1660, 608)
+	WEnd
+	While Hex(PixelGetColor(1660,608), 6) = "ACCDD5"
+		MouseClick("left", 1736, 620)
+	WEnd
+EndIf
 
 Sleep(1000)
 

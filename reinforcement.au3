@@ -9,9 +9,7 @@ WinWaitActive("Requiem")
 MouseClickDrag("left", 1746, 602, 335, 180, 10); Тащим шмотку
 mclick(357, 290); Auto Register
 mclick(447, 290); Ok
-;mclick(586, 328); Card choose
 mclick(535, 328); Card choose2
-;sleep(500)
 mclick(555, 530)
 
 WEnd
